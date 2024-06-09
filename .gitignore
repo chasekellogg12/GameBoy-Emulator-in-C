@@ -1,0 +1,13 @@
+# make and build files
+*.lst
+*.o
+*.eep
+*.lss
+*.map
+*.sym
+
+.vscode
+
+# Executable files
+main
+test
