@@ -4,7 +4,7 @@ int main() {
     return 0;
 }
 
-int initialize_gameboy() {
+int initialize_gameboy(GameBoy* gameboy) {
     
     
     return 0;
