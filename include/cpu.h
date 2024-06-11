@@ -1,5 +1,5 @@
 // combine these 8-bit flags to create a 16 bit register (like HL or AF for instance)
-
+#include "gameboy.h"
 typedef struct {
     unsigned char A; // accumulator
     unsigned char F; // flags -> consists of carry (c), half carry (h), subtraction (n), and z (zero)
@@ -13,6 +13,8 @@ typedef struct {
     unsigned short pc; // program counter
 } CPU;
 
+void initializeCPU(CPU* cpu);
+void executeInstruction(GameBoy* gameboy);
 unsigned short getAF(CPU* cpu);
 void setAF(CPU* cpu, unsigned short val);
 unsigned short getBC(CPU* cpu);

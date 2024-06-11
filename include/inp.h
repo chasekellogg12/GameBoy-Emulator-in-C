@@ -1,3 +1,5 @@
 typedef struct {
     unsigned joyp; // indicates joypad input
-} Input;
+} Inp;
+
+void initializeInp(Inp* inp);

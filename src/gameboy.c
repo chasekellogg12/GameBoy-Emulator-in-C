@@ -1,11 +1,9 @@
 #include "gameboy.h"
 
-int main() {
-    return 0;
-}
-
-int initialize_gameboy(GameBoy* gameboy) {
-    
+int initializeGameboy(GameBoy* gameboy) {
+    initializeCPU(&gameboy->cpu);
+    initializeMem(&gameboy->mem);
+    initializeInp(&gameboy->inp);
     
     return 0;
 }

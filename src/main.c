@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "rom.h"
-#include "gameboy.h"
+#include "cpu.h"
 
 /* 
 this file is for:
@@ -27,11 +27,7 @@ int main(int argc, char** argv) {
     GameBoy gameboy;
     int err;
     
-    err = initialize_gameboy(&gameboy);
-    if (err) {
-        fprintf(stderr, "Error initializing gameboy\n");
-        exit(1);
-    }
+    initializeGameboy(&gameboy); // initialize the CPU, Input, memory, PPU
 
     err = loadROM(&gameboy, argv[1]);
     if (err) {
@@ -41,6 +37,7 @@ int main(int argc, char** argv) {
 
     int quit = 1;
     while (quit) { // continuously emulate a cycle until quit
+        executeInstruction(&gameboy);
         // emulate cycle
 
         // handle display
