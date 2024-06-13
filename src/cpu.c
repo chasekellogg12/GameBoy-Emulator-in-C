@@ -21,7 +21,26 @@ void initializeCPU(CPU* cpu) {
 }
 
 void executeInstruction(GameBoy* gameboy) {
-    
+    // memory[0x1000] -> memory[0x3FFF] contains the ROM's instructions 
+    // treat the bits in the opcode as -> XXYYYZZZ
+        // XX can be 11 (3), 10 (2), 01 (1), or 00 (0)
+            // FOR 00:
+                // 
+            // FOR 01:
+                // LD r[y], r[z] if z != 6 and y != 6. Else:
+                // HALT
+    // 00 000 000 => NOP
+    // 11 110 000 => STOP
+    // 01 000 000 => LD
+    unsigned char opcode = gameboy->memory[gameboy->cpu.pc];
+    switch (opcode) {
+        case (0x00): // NOP
+            gameboy->cpu.pc += 1;
+            break;
+        default:
+            fprintf(stderr, "Error: unknown opcode\n");
+            break;
+    }
 }
 
 unsigned short getAF(CPU* cpu) {

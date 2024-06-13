@@ -1,9 +1,8 @@
 #include "gameboy.h"
 
-int initializeGameboy(GameBoy* gameboy) {
+void initializeGameboy(GameBoy* gameboy) {
     initializeCPU(&gameboy->cpu);
-    initializeMem(&gameboy->mem);
     initializeInp(&gameboy->inp);
-    
+    memset(gameboy->memory, 0, MEMORY_SIZE); // initialize the memory
     return 0;
 }

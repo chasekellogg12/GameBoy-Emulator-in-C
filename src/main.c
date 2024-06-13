@@ -37,12 +37,13 @@ int main(int argc, char** argv) {
 
     int quit = 1;
     while (quit) { // continuously emulate a cycle until quit
-        executeInstruction(&gameboy);
-        // emulate cycle
+        // do SDL stuff
+        executeInstruction(&gameboy); // execute CPU instructions
+        // update PPU
 
-        // handle display
+        // handle interrupts
 
-        // handle input
+        // render graphics
     }
 
     return 0;
